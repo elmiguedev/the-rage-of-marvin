@@ -6,6 +6,6 @@ export default class MainScene extends Scene {
     }
 
     create() {
-        this.add.text(10, 10, "holis como estas, meto cambiazo en el juego")
+        this.add.text(10, 10, "holis como estas, meto cambiazo en el juego desde otro lado")
     }
 }
