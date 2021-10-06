@@ -6,8 +6,17 @@ import StartScene from "./scenes/start.scene";
 
 export default new Game({
     type: Phaser.AUTO,
+    parent: document.getElementById("canvas"),
     width: 480,
     height: 640,
+    physics: {
+        default: "arcade",
+        arcade: {
+            gravity: {
+                y: 0
+            }
+        }
+    },
     scene: [
         BootloaderScene,
         StartScene,

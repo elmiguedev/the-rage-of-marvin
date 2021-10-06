@@ -6,6 +6,11 @@
         "dev-game": "parcel watch src/game/index.html --dist-dir \"src/public\" --public-url \".\"",
         "build-game": "parcel build src/game/index.html --dist-dir \"src/public\" --public-url \".\""
     },
+    "nodemonConfig": {
+        "ignore": [
+            "src/game/*"
+        ]
+    },
     "devDependencies": {
         "concurrently": "^6.3.0",
         "nodemon": "^2.0.13",

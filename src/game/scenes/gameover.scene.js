@@ -5,12 +5,6 @@ export default class GameoverScene extends Scene {
         super("GameoverScene");
     }
 
-    preload() {
-        this.load.on("complete", () => {
-            this.scene.start("StartScene");
-        })
-    }
-
     create() {
         this.add.text(10, 10, "GameoverScene");
     }
