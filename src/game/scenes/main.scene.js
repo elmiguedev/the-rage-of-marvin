@@ -21,7 +21,7 @@ export default class MainScene extends Scene {
     // methods
     // --------------------
     createProps() {
-        this.gopherAppearTime = 1000;
+        this.gopherAppearTime = 600;
         this.gopherSpeed = 3000;
         this.rage = 0;
         this.maxRage = 100;
@@ -147,15 +147,25 @@ export default class MainScene extends Scene {
         const gopher = new Gopher(this, x, y);
         gopher.setSpeed(this.gopherSpeed);
         gopher.onPunch = (g) => {
+            switch (g.type) {
+                case "rasta":
+                    this.punchRastaGopher();
+                    break;
 
-            // increase speed
-            this.updateGophersSpeed();
-            this.updateGopherAppearSpeed();
+                case "bad":
+                    this.punchBadGopher();
+                    break;
 
-            // keep calm marvin...
-            this.marvin.increaseRage(-5);
-
+                default:
+                case "normal":
+                    this.punchNormalGopher();
+                    break;
+            }
         }
+        gopher.onHide = (g) => {
+            this.marvin.increaseRage(5);
+        }
+
         return gopher;
     }
 
@@ -175,7 +185,7 @@ export default class MainScene extends Scene {
 
     createGophersTimer() {
         this.appearTimer = this.time.addEvent({
-            delay: 3000,
+            delay: this.gopherAppearTime,
             callback: () => {
                 // select random gopher
                 const random = Phaser.Math.Between(0, 8);
@@ -239,5 +249,22 @@ export default class MainScene extends Scene {
         }
     }
 
+    punchNormalGopher() {
+
+        // increase speed
+        this.updateGophersSpeed();
+        // this.updateGopherAppearSpeed();
+
+        // keep calm marvin...
+        this.marvin.increaseRage(-5);
+    }
+
+    punchBadGopher() {
+        this.marvin.increaseRage(30);
+    }
+
+    punchRastaGopher() {
+        this.marvin.setRage(0);
+    }
 
 }

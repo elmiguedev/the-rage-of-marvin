@@ -9,12 +9,16 @@ export default class Marvin extends Phaser.GameObjects.Image {
         this.maxRage = 100;
     }
 
-    increaseRage(mount) {
-        if (mount)
-            this.rage += mount;
+    increaseRage(rage) {
+        if (rage)
+            this.rage += rage;
         else
             this.rage++;
         this.checkTexture();
+    }
+
+    setRage(rage) {
+        this.rage = rage;
     }
 
     checkTexture() {

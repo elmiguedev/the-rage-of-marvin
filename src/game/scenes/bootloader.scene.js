@@ -35,7 +35,7 @@ export default class BootloaderScene extends Scene {
         this.load.image("marvin_rage_5", marvinRage5Png);
 
         this.load.on("complete", () => {
-            this.scene.start("MainScene");
+            this.scene.start("StartScene");
         })
     }
 
