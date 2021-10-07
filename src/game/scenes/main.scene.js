@@ -130,11 +130,15 @@ export default class MainScene extends Scene {
             540,
             0xd9a066
         ).setOrigin(0)
-        this.sound.stopAll();
-        this.sound.play("music", {
-            loop: true,
-            volume: 0.5
-        })
+        try {
+            this.sound.play("music", {
+                loop: true,
+                volume: 0.5
+            })
+
+        } catch (error) {
+
+        }
     }
 
     createMarvin() {
