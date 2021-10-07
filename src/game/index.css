@@ -73,5 +73,6 @@ html,
 
             canvas {
                 width: 99%;
+                margin-bottom: 10px;
             }
         }
