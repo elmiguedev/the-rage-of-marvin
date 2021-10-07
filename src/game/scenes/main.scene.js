@@ -9,6 +9,7 @@ export default class MainScene extends Scene {
 
     create() {
         this.createProps();
+        this.createScore();
         this.createAnimations();
         this.createBackground();
         this.createMarvin();
@@ -25,6 +26,19 @@ export default class MainScene extends Scene {
         this.gopherSpeed = 3000;
         this.rage = 0;
         this.maxRage = 100;
+    }
+
+    createScore() {
+        this.score = 0;
+        this.scoreText = this.add.text(20, 20, "Puntaje: 0");
+    }
+
+    updateScore(n) {
+        if (n)
+            this.score += n;
+        else
+            this.score++;
+        this.scoreText.setText(`Puntaje: ${this.score}`);
     }
 
     createAnimations() {
@@ -108,7 +122,7 @@ export default class MainScene extends Scene {
     }
 
     createBackground() {
-        this.cameras.main.setBackgroundColor(0xffffff)
+        this.cameras.main.setBackgroundColor(0x81D4FA)
         this.gophersBackground = this.add.rectangle(
             0,
             230,
@@ -139,6 +153,7 @@ export default class MainScene extends Scene {
             repeat: -1,
             callback: () => {
                 this.increaseRage();
+                this.updateScore();
             }
         })
     }
@@ -213,15 +228,21 @@ export default class MainScene extends Scene {
         })
     }
 
+    resetGophersAppearTimer() {
+        this.appearTimer.reset({
+            delay: this.gopherAppearTime
+        })
+    }
+
     updateGopherAppearSpeed() {
-        if (this.gopherAppearTime > 100) {
-            this.gopherAppearTime -= 50;
+        if (this.gopherAppearTime > 300) {
+            this.gopherAppearTime -= 10;
             this.appearTimer.delay = this.gopherAppearTime;
         }
     }
 
     updateGophersSpeed() {
-        if (this.gopherSpeed > 100) {
+        if (this.gopherSpeed > 50) {
             this.gopherSpeed = this.gopherSpeed - 50;
             this.gophers.forEach(g => {
                 g.setSpeed(this.gopherSpeed);
@@ -253,7 +274,7 @@ export default class MainScene extends Scene {
 
         // increase speed
         this.updateGophersSpeed();
-        // this.updateGopherAppearSpeed();
+        this.updateGopherAppearSpeed();
 
         // keep calm marvin...
         this.marvin.increaseRage(-5);

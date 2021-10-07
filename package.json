@@ -4,7 +4,8 @@
         "dev": "concurrently \"npm run dev-game\" \"npm run dev-server\"",
         "dev-server": "nodemon src/index.js",
         "dev-game": "parcel watch src/game/index.html --dist-dir \"src/public\" --public-url \".\"",
-        "build-game": "parcel build src/game/index.html --dist-dir \"src/public\" --public-url \".\""
+        "build-game": "parcel build src/game/index.html --dist-dir \"src/public\" --public-url \".\"",
+        "build-game-docs": "parcel build src/game/index.html --dist-dir \"docs\" --public-url \".\""
     },
     "nodemonConfig": {
         "ignore": [

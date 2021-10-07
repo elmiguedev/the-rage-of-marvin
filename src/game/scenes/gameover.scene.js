@@ -33,7 +33,7 @@ export default class GameoverScene extends Phaser.Scene {
         const text = this.add.text(
             240,
             400,
-            "Bueno pa, fue un trabajo muy duro, arreglamos lo que pudimos, pero al final, la culpa fue del fury. Nos vimos, me voy a tomar unos mates",
+            "AHHHGGGGGGHHH C&@$#/ Me hartaron, me voy a tomar una coca zero y a jugar al stardew valley",
         );
         text.setAlign("center");
         text.setWordWrapWidth(350);
@@ -42,7 +42,7 @@ export default class GameoverScene extends Phaser.Scene {
         const text2 = this.add.text(
             240,
             600,
-            "Presiona [ENTER] para darle otra oportunidad al Yori"
+            "Presiona [ENTER] para darle otra oportunidad al Marvin de que se calme"
         );
         text2.setAlign("center");
         text2.setWordWrapWidth(350);

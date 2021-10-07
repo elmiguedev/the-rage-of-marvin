@@ -20,8 +20,8 @@ export default class StartScene extends Phaser.Scene {
     createText() {
         const text = this.add.text(
             240,
-            400,
-            "Vieja, acabo de deployar el back del scheduling-fe, me das una mano con los bugs?"
+            370,
+            "Esta API me tiene cansado, estos proyectos en GO me estan llendando de bronca >:V. Me voy a desquitar pegándole a algunos gophers"
         );
         text.setAlign("center");
         text.setWordWrapWidth(350);
@@ -29,8 +29,8 @@ export default class StartScene extends Phaser.Scene {
 
         const text2 = this.add.text(
             240,
-            500,
-            "Presiona [ENTER] para ayudar al Yori con los bugs"
+            480,
+            "Presiona [ENTER] para ayudar al Marvin a disminuir su ira golpeando algunos Gophers"
         );
         text2.setAlign("center");
         text2.setWordWrapWidth(350);
@@ -38,8 +38,8 @@ export default class StartScene extends Phaser.Scene {
 
         const text3 = this.add.text(
             240,
-            550,
-            "[ESPACE] para disparar, [FLECHAS] para moverse"
+            570,
+            "[CLICK/TOUCH] para golpear un gopher. Algunos gopher RASTA te relajan, y cuidado con los gopher malos! te dan mas bronca!"
         );
         text3.setAlign("center");
         text3.setWordWrapWidth(350);
