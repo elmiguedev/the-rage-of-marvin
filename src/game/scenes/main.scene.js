@@ -130,6 +130,10 @@ export default class MainScene extends Scene {
             540,
             0xd9a066
         ).setOrigin(0)
+        this.sound.stopAll();
+        this.sound.play("music", {
+            loop: true
+        })
     }
 
     createMarvin() {
@@ -266,6 +270,7 @@ export default class MainScene extends Scene {
 
     checkGameover() {
         if (this.marvin.rage >= 100) {
+            this.sound.stopAll();
             this.scene.start("GameoverScene", {
                 score: this.score
             });
@@ -277,16 +282,19 @@ export default class MainScene extends Scene {
         // increase speed
         this.updateGophersSpeed();
         this.updateGopherAppearSpeed();
-
+        this.sound.play("punch");
         // keep calm marvin...
         this.marvin.increaseRage(-5);
     }
 
     punchBadGopher() {
+        this.sound.play("punch");
+        this.cameras.main.shake();
         this.marvin.increaseRage(30);
     }
 
     punchRastaGopher() {
+        this.sound.play("ganja");
         this.marvin.setRage(0);
     }
 

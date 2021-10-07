@@ -27,7 +27,7 @@ export default class GameoverScene extends Phaser.Scene {
     }
 
     createMusic() {
-        // this.sound.play("gameover");
+        this.sound.play("gameover");
     }
 
     createFace() {

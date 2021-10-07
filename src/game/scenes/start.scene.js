@@ -62,7 +62,7 @@ export default class StartScene extends Phaser.Scene {
     }
 
     createMusic() {
-        // this.sound.play("intro");
+        this.sound.play("intro");
     }
 
     start() {
