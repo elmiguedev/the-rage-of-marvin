@@ -132,7 +132,8 @@ export default class MainScene extends Scene {
         ).setOrigin(0)
         this.sound.stopAll();
         this.sound.play("music", {
-            loop: true
+            loop: true,
+            volume: 0.5
         })
     }
 

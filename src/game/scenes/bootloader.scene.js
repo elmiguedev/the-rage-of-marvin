@@ -40,12 +40,12 @@ export default class BootloaderScene extends Scene {
         this.load.image("marvin_rage_4", marvinRage4Png);
         this.load.image("marvin_rage_5", marvinRage5Png);
 
-        this.load.audio("intro", introMp3);
-        this.load.audio("gameover", gameoverMp3);
-        this.load.audio("music", musicMp3);
-        this.load.audio("punch", punchMp3);
-        this.load.audio("ganja", ganjaMp3);
-        this.load.audio("hurry", hurryMp3);
+        this.load.audio("intro", [introMp3]);
+        this.load.audio("gameover", [gameoverMp3]);
+        this.load.audio("music", [musicMp3]);
+        this.load.audio("punch", [punchMp3]);
+        this.load.audio("ganja", [ganjaMp3]);
+        this.load.audio("hurry", [hurryMp3]);
 
         this.load.on("complete", () => {
             this.scene.start("StartScene");
