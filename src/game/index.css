@@ -63,6 +63,12 @@ canvas {
     canvas {
         width: 99%;
         margin-bottom: 10px;
-        height: auto;
+    }
+    #canvas {
+        margin-top: 80px;
+        height: auto !important;
+    }
+    .credits {
+        margin: 0;
     }
 }
