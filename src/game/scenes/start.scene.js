@@ -5,6 +5,12 @@ export default class StartScene extends Phaser.Scene {
         super("StartScene")
     }
 
+    update() {
+        if (this.input.activePointer.isDown) {
+            this.start();
+        }
+    }
+
     create() {
         this.createFace();
         this.createText();
@@ -30,7 +36,7 @@ export default class StartScene extends Phaser.Scene {
         const text2 = this.add.text(
             240,
             480,
-            "Presiona [ENTER] para ayudar al Marvin a disminuir su ira golpeando algunos Gophers"
+            "Presiona [ENTER/CLICK/TOUCH] para ayudar al Marvin a disminuir su ira golpeando algunos Gophers"
         );
         text2.setAlign("center");
         text2.setWordWrapWidth(350);
@@ -50,12 +56,18 @@ export default class StartScene extends Phaser.Scene {
     createControls() {
         this.enter = this.input.keyboard.addKey("enter");
         this.enter.onDown = (e) => {
-            this.sound.stopAll();
-            this.scene.start("MainScene");
+            this.start
         }
+
     }
 
     createMusic() {
         // this.sound.play("intro");
+    }
+
+    start() {
+
+        this.sound.stopAll();
+        this.scene.start("MainScene");
     }
 }

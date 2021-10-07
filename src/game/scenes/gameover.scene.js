@@ -13,6 +13,12 @@ export default class GameoverScene extends Phaser.Scene {
         }
     }
 
+    update() {
+        if (this.input.activePointer.isDown) {
+            this.start();
+        }
+    }
+
     create() {
         this.createFace();
         this.createText();
@@ -42,7 +48,7 @@ export default class GameoverScene extends Phaser.Scene {
         const text2 = this.add.text(
             240,
             600,
-            "Presiona [ENTER] para darle otra oportunidad al Marvin de que se calme"
+            "Presiona [ENTER/CLICK/TOUCH] para darle otra oportunidad al Marvin de que se calme"
         );
         text2.setAlign("center");
         text2.setWordWrapWidth(350);
@@ -51,7 +57,7 @@ export default class GameoverScene extends Phaser.Scene {
         const text3 = this.add.text(
             240,
             500,
-            `Tu puntaje fue de ${this.score} yoris`
+            `Tu puntaje fue de ${this.score} marvins`
         );
         text3.setAlign("center");
         text3.setWordWrapWidth(350);
@@ -61,8 +67,12 @@ export default class GameoverScene extends Phaser.Scene {
     createControls() {
         this.enter = this.input.keyboard.addKey("enter");
         this.enter.onDown = (e) => {
-            this.sound.stopAll();
-            this.scene.start("MainScene");
+            this.start();
         }
+    }
+
+    start() {
+        this.sound.stopAll();
+        this.scene.start("MainScene");
     }
 }

@@ -266,7 +266,9 @@ export default class MainScene extends Scene {
 
     checkGameover() {
         if (this.marvin.rage >= 100) {
-            this.scene.start("GameoverScene");
+            this.scene.start("GameoverScene", {
+                score: this.score
+            });
         }
     }
 
